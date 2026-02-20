@@ -1,0 +1,99 @@
+{
+	"logo_text": "bookingkoro",
+	"tagline": "The Entertainment Ticket Portal",
+	"city_name": "Mumbai",
+	"search_placeholder": "Search for Activities, Events, Services, Stays and Vehicles",
+	"secondary_nav": [
+		{ "label": "Activity", "url": "#activity" },
+		{ "label": "Event", "url": "#event" },
+		{ "label": "Service", "url": "#service" },
+		{ "label": "Stays", "url": "#stays" },
+		{ "label": "Vehicle", "url": "#vehicle" }
+	],
+	"hero_slides": [
+		{
+			"title": "Book Activities, Events, Services & More",
+			"subtitle": "Discover and reserve with ease",
+			"url": "#"
+		}
+	],
+	"stream_heading": "Discover",
+	"stream_tagline": "Book activities, events, services, stays and vehicles — all in one place.",
+	"main_categories": [
+		{ "label": "Activity", "url": "#activity", "icon": "activity" },
+		{ "label": "Event", "url": "#event", "icon": "event" },
+		{ "label": "Service", "url": "#service", "icon": "service" },
+		{ "label": "Stays", "url": "#stays", "icon": "stays" },
+		{ "label": "Vehicle", "url": "#vehicle", "icon": "vehicle" }
+	],
+	"recommended_movies": [
+        { "title": "Sample Movie One", "genre": "Drama | English", "tags": ["U/A", "2D", "Hindi"], "offer": "20% OFF up to 150", "url": "#" },
+        { "title": "Sample Movie Two", "genre": "Comedy | Hindi", "tags": ["U", "2D"], "offer": "", "url": "#" },
+        { "title": "Sample Movie Three", "genre": "Action | English", "tags": ["U/A", "3D"], "offer": "15% OFF", "url": "#" },
+        { "title": "Sample Movie Four", "genre": "Thriller | Hindi", "tags": ["A", "2D"], "offer": "", "url": "#" },
+        { "title": "Sample Movie Five", "genre": "Romantic | Tamil", "tags": ["U/A", "2D"], "offer": "", "url": "#" },
+        { "title": "Sample Movie One", "genre": "Drama | English", "tags": ["U/A", "2D", "Hindi"], "offer": "20% OFF up to 150", "url": "#" },
+        { "title": "Sample Movie Two", "genre": "Comedy | Hindi", "tags": ["U", "2D"], "offer": "", "url": "#" },
+        { "title": "Sample Movie Three", "genre": "Action | English", "tags": ["U/A", "3D"], "offer": "15% OFF", "url": "#" },
+        { "title": "Sample Movie Four", "genre": "Thriller | Hindi", "tags": ["A", "2D"], "offer": "", "url": "#" }
+	],
+	"recommended_vehicles": [
+		{ "title": "Premium Sedan - Weekend Deal", "meta": "From ₹1,499/day", "url": "#" },
+		{ "title": "SUV for Family Trip", "meta": "7-seater, AC", "url": "#" },
+		{ "title": "Electric Scooter", "meta": "City commute", "url": "#" },
+		{ "title": "Luxury SUV", "meta": "Airport transfer", "url": "#" },
+		{ "title": "Bike Rental - Monthly", "meta": "Best value", "url": "#" }
+	],
+	"activity_items": [
+		{ "title": "Trekking & Hiking", "meta": "Outdoor adventure", "url": "#" },
+		{ "title": "Water Sports", "meta": "Beach & lakes", "url": "#" },
+		{ "title": "Workshops", "meta": "Learning & skills", "url": "#" },
+		{ "title": "Tours & Experiences", "meta": "Guided tours", "url": "#" },
+		{ "title": "Fitness & Wellness", "meta": "Yoga, gym, spa", "url": "#" }
+	],
+	"event_items": [
+		{ "title": "Music Concert", "meta": "Live performance", "url": "#" },
+		{ "title": "Comedy Night", "meta": "Stand-up show", "url": "#" },
+		{ "title": "Festival 2026", "meta": "Multi-day event", "url": "#" },
+		{ "title": "Conference", "meta": "Business & networking", "url": "#" },
+		{ "title": "Exhibition", "meta": "Art & culture", "url": "#" }
+	],
+	"service_items": [
+		{ "title": "Home Cleaning", "meta": "Professional cleaning", "url": "#" },
+		{ "title": "Salon & Spa", "meta": "Beauty & wellness", "url": "#" },
+		{ "title": "Repairs", "meta": "Home & appliance", "url": "#" },
+		{ "title": "Tutoring", "meta": "Learning support", "url": "#" },
+		{ "title": "Photography", "meta": "Events & portraits", "url": "#" }
+	],
+	"stays_items": [
+		{ "title": "Hotel Downtown", "meta": "City centre", "url": "#" },
+		{ "title": "Beach Resort", "meta": "Sea view", "url": "#" },
+		{ "title": "Homestay", "meta": "Local experience", "url": "#" },
+		{ "title": "Villa with Pool", "meta": "Private stay", "url": "#" },
+		{ "title": "Budget Hostel", "meta": "Backpacker friendly", "url": "#" }
+	],
+	"vehicle_items": [
+		{ "title": "Sedan Rental", "meta": "Daily / weekly", "url": "#" },
+		{ "title": "SUV Hire", "meta": "Family & luggage", "url": "#" },
+		{ "title": "Two-Wheeler", "meta": "Bike / scooter", "url": "#" },
+		{ "title": "Luxury Car", "meta": "Premium travel", "url": "#" },
+		{ "title": "Airport Transfer", "meta": "Pick-up & drop", "url": "#" }
+	],
+	"how_it_works": {
+		"title": "How it works",
+		"subtitle": "Book in three simple steps",
+		"steps": [
+			{ "title": "Search", "description": "Find activities, events, services, stays or vehicles that match your needs." },
+			{ "title": "Book", "description": "Choose your date, confirm details and pay securely online." },
+			{ "title": "Enjoy", "description": "Show up and enjoy your experience. We're here if you need help." }
+		]
+	},
+	"footer": {
+		"list_show_text": "List your Show/Event?",
+		"contact_btn": "Contact Us",
+		"support": "24/7 CUSTOMER SUPPORT",
+		"resend": "RESEND BOOKING CONFIRMATION",
+		"newsletter": "SUBSCRIBE TO THE NEWSLETTER",
+		"copyright": "Copyright © BookingKoro. All Rights Reserved."
+	}
+}

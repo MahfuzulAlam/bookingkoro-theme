@@ -1,0 +1,1042 @@
+/**
+ * BookingKoro Homepage – BookMyShow-style layout
+ *
+ * @package BookingKoro
+ */
+
+.bookingkoro-home-content {
+	width: 100%;
+	max-width: 100%;
+	padding: 0;
+}
+
+.bkor-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 24px;
+}
+
+@media (max-width: 768px) {
+	.bkor-container {
+		padding: 0 16px;
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Header (white, logo + location + search + sign in)
+   ------------------------------------------------------------------------- */
+
+.bkor-header {
+	background: #fff;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+
+.bkor-header__inner {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 12px 24px;
+	flex-wrap: wrap;
+}
+
+.bkor-logo {
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+	margin-right: 8px;
+}
+
+.bkor-logo__text {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #e50914;
+	line-height: 1.2;
+}
+
+.bkor-logo__tagline {
+	font-size: 0.6875rem;
+	color: #333;
+	line-height: 1.2;
+}
+
+.bkor-location {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 0.9375rem;
+	color: #333;
+	padding: 6px 10px;
+}
+
+.bkor-location:hover {
+	color: #e50914;
+}
+
+.bkor-location__arrow {
+	flex-shrink: 0;
+}
+
+.bkor-search {
+	flex: 1;
+	min-width: 200px;
+	max-width: 480px;
+	display: flex;
+	align-items: center;
+	background: #f5f5f5;
+	border-radius: 8px;
+	padding: 10px 14px;
+	gap: 10px;
+}
+
+.bkor-search__icon {
+	font-size: 1rem;
+	color: #666;
+}
+
+.bkor-search__input {
+	flex: 1;
+	border: none;
+	background: none;
+	font-size: 0.875rem;
+	color: #333;
+	outline: none;
+}
+
+.bkor-search__input::placeholder {
+	color: #999;
+}
+
+.bkor-header__right {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.bkor-lang {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 0.875rem;
+	color: #333;
+	padding: 6px 8px;
+}
+
+.bkor-btn {
+	display: inline-block;
+	padding: 10px 20px;
+	border-radius: 6px;
+	font-weight: 600;
+	font-size: 0.875rem;
+	text-decoration: none;
+	transition: background 0.2s, color 0.2s;
+}
+
+.bkor-btn--signin {
+	background: #e50914;
+	color: #fff;
+	border: none;
+}
+
+.bkor-btn--signin:hover,
+.bkor-btn--signin:focus {
+	background: #b80712;
+	color: #fff;
+}
+
+.bkor-menu-btn {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 8px;
+}
+
+.bkor-menu-btn__line {
+	width: 22px;
+	height: 2px;
+	background: #333;
+	border-radius: 1px;
+}
+
+@media (max-width: 768px) {
+	.bkor-search {
+		order: 3;
+		width: 100%;
+		max-width: none;
+		min-width: 0;
+	}
+	.bkor-header__inner {
+		padding: 10px 16px;
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Secondary nav (white, black text links)
+   ------------------------------------------------------------------------- */
+
+.bkor-nav-sec {
+	background: #fff;
+	border-bottom: 1px solid #eee;
+}
+
+.bkor-nav-sec .bkor-container {
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+
+.bkor-nav-sec__list {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	gap: 8px 28px;
+}
+
+.bkor-nav-sec__list li {
+	margin: 0;
+}
+
+.bkor-nav-sec__link,
+.bkor-nav-sec__list a {
+	color: #1a1a1a;
+	text-decoration: none;
+	font-size: 0.9375rem;
+	font-weight: 500;
+}
+
+.bkor-nav-sec__link:hover,
+.bkor-nav-sec__link:focus,
+.bkor-nav-sec__list a:hover,
+.bkor-nav-sec__list a:focus {
+	color: #e50914;
+}
+
+/* -------------------------------------------------------------------------
+   Hero carousel (gradient, cashback style)
+   ------------------------------------------------------------------------- */
+
+.bkor-hero {
+	position: relative;
+	background: linear-gradient(135deg, #c2410c 0%, #9a3412 50%, #7c2d12 100%);
+	min-height: 280px;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+
+.bkor-hero__track {
+	width: 100%;
+	padding: 40px 24px;
+}
+
+.bkor-hero__slide {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	max-width: 1200px;
+	margin: 0 auto;
+	text-decoration: none;
+	color: #fff;
+}
+
+.bkor-hero__title {
+	margin: 0;
+	font-size: 2.5rem;
+	font-weight: 800;
+	line-height: 1.15;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.bkor-hero__subtitle {
+	margin: 8px 0 0;
+	font-size: 1rem;
+	opacity: 0.95;
+}
+
+.bkor-hero__illus {
+	width: 180px;
+	height: 140px;
+	background: rgba(255, 255, 255, 0.15);
+	border-radius: 12px;
+}
+
+.bkor-hero__dots {
+	position: absolute;
+	bottom: 16px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 8px;
+}
+
+.bkor-hero__dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.5);
+	border: none;
+	cursor: pointer;
+	padding: 0;
+}
+
+.bkor-hero__dot--active {
+	background: #fff;
+}
+
+.bkor-carousel-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.25);
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	z-index: 2;
+	transition: background 0.2s;
+}
+
+.bkor-carousel-arrow:hover {
+	background: rgba(0, 0, 0, 0.4);
+}
+
+.bkor-carousel-arrow--prev {
+	left: 16px;
+}
+
+.bkor-carousel-arrow--next {
+	right: 16px;
+}
+
+.bkor-carousel-arrow::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 10px;
+	height: 10px;
+	border-left: 2px solid currentColor;
+	border-bottom: 2px solid currentColor;
+	transform: translate(-60%, -50%) rotate(45deg);
+}
+
+.bkor-carousel-arrow--next::after {
+	transform: translate(-40%, -50%) rotate(-135deg);
+}
+
+.bkor-carousel-arrow {
+	color: #fff;
+}
+
+.bkor-carousel-arrow--light {
+	background: rgba(255, 255, 255, 0.3);
+}
+
+.bkor-carousel-arrow--light:hover {
+	background: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+	.bkor-hero__title {
+		font-size: 1.75rem;
+	}
+	.bkor-hero__illus {
+		display: none;
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Section blocks
+   ------------------------------------------------------------------------- */
+
+.bkor-section {
+	padding: 32px 0;
+	position: relative;
+}
+
+.bkor-section--dark {
+	background: #1e293b;
+}
+
+.bkor-section-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20px;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.bkor-section-header--light .bkor-section-title,
+.bkor-section-header--light .bkor-section-link {
+	color: #fff;
+}
+
+.bkor-section-title {
+	margin: 0;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #1a1a1a;
+}
+
+.bkor-section-title--standalone {
+	margin-bottom: 20px;
+}
+
+.bkor-section-title--light {
+	color: #fff;
+}
+
+.bkor-section-subtitle {
+	display: block;
+	font-size: 0.875rem;
+	font-weight: 400;
+	opacity: 0.9;
+	margin-top: 2px;
+}
+
+.bkor-premiere-icon {
+	font-size: 1rem;
+	margin-right: 4px;
+}
+
+.bkor-section-link {
+	color: #e50914;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 0.9375rem;
+}
+
+.bkor-section-link:hover,
+.bkor-section-link:focus {
+	text-decoration: underline;
+}
+
+.bkor-section-link--light {
+	color: rgba(255, 255, 255, 0.95);
+}
+
+.bkor-section-link--light:hover,
+.bkor-section-link--light:focus {
+	color: #fff;
+}
+
+/* -------------------------------------------------------------------------
+   Recommended Vehicles – distinct section (dark, wide cards, ribbon)
+   ------------------------------------------------------------------------- */
+
+.bkor-section--vehicles {
+	background: linear-gradient(160deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+	padding: 40px 0;
+}
+
+.bkor-vehicles-heading-wrap {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.bkor-vehicles-badge {
+	display: inline-block;
+	background: #e50914;
+	color: #fff;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	padding: 6px 12px;
+	border-radius: 6px;
+}
+
+.bkor-vehicles-track {
+	display: flex;
+	gap: 24px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding-bottom: 16px;
+	scroll-snap-type: x mandatory;
+	-webkit-overflow-scrolling: touch;
+}
+
+.bkor-vehicles-track::-webkit-scrollbar {
+	height: 10px;
+}
+
+.bkor-vehicles-track::-webkit-scrollbar-track {
+	background: rgba(255, 255, 255, 0.08);
+	border-radius: 5px;
+}
+
+.bkor-vehicles-track::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.25);
+	border-radius: 5px;
+}
+
+.bkor-vehicle-card {
+	flex: 0 0 300px;
+	scroll-snap-align: start;
+}
+
+@media (min-width: 769px) {
+	.bkor-vehicle-card {
+		flex: 0 0 340px;
+	}
+}
+
+.bkor-vehicle-card__link {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+	border-radius: 16px;
+	overflow: hidden;
+	background: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+}
+
+.bkor-vehicle-card__link:hover,
+.bkor-vehicle-card__link:focus {
+	transform: translateY(-6px);
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+	border-color: rgba(229, 9, 20, 0.5);
+}
+
+.bkor-vehicle-card__img {
+	aspect-ratio: 16 / 10;
+	background: linear-gradient(145deg, #475569 0%, #334155 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.bkor-vehicle-card__ribbon {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	background: #e50914;
+	color: #fff;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	padding: 5px 10px;
+	border-radius: 4px;
+	letter-spacing: 0.03em;
+}
+
+.bkor-vehicle-card__placeholder {
+	font-size: 0.75rem;
+	color: rgba(255, 255, 255, 0.4);
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+
+.bkor-vehicle-card__body {
+	padding: 18px 20px;
+}
+
+.bkor-vehicle-card__title {
+	margin: 0 0 6px;
+	font-size: 1.0625rem;
+	font-weight: 700;
+	line-height: 1.3;
+	color: #f1f5f9;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.bkor-vehicle-card__meta {
+	margin: 0;
+	font-size: 0.875rem;
+	color: #94a3b8;
+	line-height: 1.4;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+/* -------------------------------------------------------------------------
+   Horizontal scroll cards
+   ------------------------------------------------------------------------- */
+
+.bkor-cards--scroll {
+	display: flex;
+	gap: 20px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding-bottom: 12px;
+	scroll-snap-type: x mandatory;
+	-webkit-overflow-scrolling: touch;
+}
+
+.bkor-cards--scroll::-webkit-scrollbar {
+	height: 8px;
+}
+
+.bkor-cards--scroll::-webkit-scrollbar-track {
+	background: #f0f0f0;
+	border-radius: 4px;
+}
+
+.bkor-cards--scroll::-webkit-scrollbar-thumb {
+	background: #ccc;
+	border-radius: 4px;
+}
+
+.bkor-section--dark .bkor-cards--scroll::-webkit-scrollbar-track {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.bkor-section--dark .bkor-cards--scroll::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.3);
+}
+
+.bkor-card {
+	flex: 0 0 160px;
+	scroll-snap-align: start;
+}
+
+@media (min-width: 769px) {
+	.bkor-card {
+		flex: 0 0 180px;
+	}
+}
+
+.bkor-card__link {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+	transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.bkor-card__link:hover,
+.bkor-card__link:focus {
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+	transform: translateY(-4px);
+}
+
+.bkor-card__img {
+	aspect-ratio: 2 / 3;
+	background: linear-gradient(145deg, #e0e0e0 0%, #bdbdbd 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.bkor-card--dark .bkor-card__img {
+	background: linear-gradient(145deg, #334155 0%, #1e293b 100%);
+}
+
+.bkor-card__placeholder {
+	font-size: 0.75rem;
+	color: #757575;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.bkor-card--dark .bkor-card__placeholder {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.bkor-card__offer {
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	background: #e50914;
+	color: #fff;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	padding: 4px 8px;
+	border-radius: 4px;
+}
+
+.bkor-card__badge {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	background: #e50914;
+	color: #fff;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	padding: 4px 8px;
+	border-radius: 4px;
+}
+
+.bkor-card__body {
+	padding: 12px;
+	background: #fff;
+}
+
+.bkor-card--dark .bkor-card__body {
+	background: #334155;
+}
+
+.bkor-card__title {
+	margin: 0 0 4px;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	line-height: 1.3;
+	color: #1a1a1a;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.bkor-card--dark .bkor-card__title {
+	color: #fff;
+}
+
+.bkor-card__meta {
+	margin: 0 0 8px;
+	font-size: 0.8125rem;
+	color: #666;
+	line-height: 1.3;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.bkor-card__tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.bkor-tag {
+	display: inline-block;
+	background: #e50914;
+	color: #fff;
+	font-size: 0.6875rem;
+	font-weight: 600;
+	padding: 2px 6px;
+	border-radius: 2px;
+}
+
+/* -------------------------------------------------------------------------
+   STREAM banner (dark blue/purple)
+   ------------------------------------------------------------------------- */
+
+.bkor-stream {
+	position: relative;
+	background: linear-gradient(135deg, #312e81 0%, #1e1b4b 100%);
+	padding: 40px 60px;
+}
+
+.bkor-stream__inner {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	flex-wrap: wrap;
+}
+
+.bkor-stream__logo {
+	margin: 0;
+	font-size: 2rem;
+	font-weight: 800;
+	color: #fff;
+	letter-spacing: 0.02em;
+}
+
+.bkor-stream__tagline {
+	margin: 0;
+	font-size: 1rem;
+	color: rgba(255, 255, 255, 0.95);
+}
+
+@media (max-width: 768px) {
+	.bkor-stream {
+		padding: 28px 50px;
+	}
+	.bkor-stream__logo {
+		font-size: 1.5rem;
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Live Events category cards (rounded, colored bg)
+   ------------------------------------------------------------------------- */
+
+.bkor-live-cats {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+
+.bkor-live-cat {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 140px;
+	height: 120px;
+	border-radius: 12px;
+	text-decoration: none;
+	color: #fff;
+	transition: transform 0.2s, box-shadow 0.2s;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bkor-live-cat:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.bkor-live-cat__icon {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.3);
+	margin-bottom: 10px;
+}
+
+.bkor-live-cat__icon--activity { background: #7c3aed; }
+.bkor-live-cat__icon--event    { background: #059669; }
+.bkor-live-cat__icon--service  { background: #2563eb; }
+.bkor-live-cat__icon--stays    { background: #dc2626; }
+.bkor-live-cat__icon--vehicle  { background: #ea580c; }
+
+.bkor-live-cat:nth-child(1) { background: linear-gradient(145deg, #8b5cf6 0%, #6d28d9 100%); }
+.bkor-live-cat:nth-child(2) { background: linear-gradient(145deg, #10b981 0%, #059669 100%); }
+.bkor-live-cat:nth-child(3) { background: linear-gradient(145deg, #3b82f6 0%, #2563eb 100%); }
+.bkor-live-cat:nth-child(4) { background: linear-gradient(145deg, #ef4444 0%, #dc2626 100%); }
+.bkor-live-cat:nth-child(5) { background: linear-gradient(145deg, #f97316 0%, #ea580c 100%); }
+
+.bkor-live-cat__label {
+	font-size: 0.8125rem;
+	font-weight: 600;
+	text-align: center;
+	line-height: 1.2;
+}
+
+/* -------------------------------------------------------------------------
+   How it works block
+   ------------------------------------------------------------------------- */
+
+.bkor-how {
+	background: #f8fafc;
+}
+
+.bkor-how .bkor-section-title--standalone {
+	margin-bottom: 8px;
+}
+
+.bkor-how__subtitle {
+	margin: 0 0 28px;
+	font-size: 1rem;
+	color: #64748b;
+	text-align: center;
+	max-width: 480px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.bkor-how__steps {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 24px;
+	margin-top: 24px;
+}
+
+.bkor-how__step {
+	background: #fff;
+	border-radius: 12px;
+	padding: 28px 24px;
+	text-align: center;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+	transition: box-shadow 0.2s ease;
+}
+
+.bkor-how__step:hover {
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.bkor-how__num {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: #e50914;
+	color: #fff;
+	font-size: 1.25rem;
+	font-weight: 700;
+	margin-bottom: 16px;
+}
+
+.bkor-how__step-title {
+	margin: 0 0 8px;
+	font-size: 1.125rem;
+	font-weight: 700;
+	color: #1a1a1a;
+}
+
+.bkor-how__step-desc {
+	margin: 0;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	color: #64748b;
+}
+
+@media (max-width: 768px) {
+	.bkor-how__steps {
+		grid-template-columns: 1fr;
+		gap: 16px;
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Footer (dark grey)
+   ------------------------------------------------------------------------- */
+
+.bkor-footer {
+	background: #1f2937;
+	color: #9ca3af;
+	margin-top: 0;
+}
+
+.bkor-footer__top {
+	border-top: 1px solid #374151;
+	padding: 24px 0;
+}
+
+.bkor-footer__cta {
+	margin: 0 0 20px;
+	font-size: 0.9375rem;
+	color: #e5e7eb;
+}
+
+.bkor-btn--contact {
+	background: #e50914;
+	color: #fff;
+	margin-left: 12px;
+	vertical-align: middle;
+}
+
+.bkor-btn--contact:hover,
+.bkor-btn--contact:focus {
+	background: #b80712;
+	color: #fff;
+}
+
+.bkor-footer__row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px 32px;
+}
+
+.bkor-footer__col {
+	font-size: 0.8125rem;
+	color: #9ca3af;
+}
+
+.bkor-footer__mid {
+	padding: 24px 0;
+	border-top: 1px solid #374151;
+}
+
+.bkor-footer__links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px 40px;
+	margin-bottom: 20px;
+}
+
+.bkor-footer__heading {
+	margin: 0 0 10px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	color: #e5e7eb;
+	letter-spacing: 0.05em;
+}
+
+.bkor-footer__link-col a {
+	color: #9ca3af;
+	text-decoration: none;
+	font-size: 0.8125rem;
+}
+
+.bkor-footer__link-col a:hover {
+	color: #fff;
+}
+
+.bkor-footer__social {
+	display: flex;
+	gap: 12px;
+}
+
+.bkor-footer__social-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	background: #374151;
+	color: #e5e7eb;
+	text-decoration: none;
+	border-radius: 6px;
+	font-size: 0.875rem;
+}
+
+.bkor-footer__social-link:hover {
+	background: #4b5563;
+	color: #fff;
+}
+
+.bkor-footer__bottom {
+	padding: 16px 0;
+	border-top: 1px solid #374151;
+}
+
+.bkor-footer__copy {
+	margin: 0;
+	font-size: 0.75rem;
+	color: #6b7280;
+	line-height: 1.5;
+}
+
+/* Full width when this template is used */
+.bookingkoro-home-page .site-content {
+	max-width: 100%;
+}
+
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+}

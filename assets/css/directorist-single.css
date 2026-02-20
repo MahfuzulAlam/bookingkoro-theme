@@ -1,0 +1,617 @@
+/**
+ * Directorist single listing – BookingKoro overrides
+ * Improves layout, cards, typography and spacing.
+ *
+ * @package BookingKoro
+ */
+
+/* -------------------------------------------------------------------------
+   Page wrapper & layout
+   ------------------------------------------------------------------------- */
+
+.directorist-single.directorist-container {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 24px 20px 40px;
+}
+
+.directorist-single-contents-area .directorist-container-fluid {
+	padding: 0;
+}
+
+.directorist-single-contents-area .directorist-row {
+	margin-left: -12px;
+	margin-right: -12px;
+}
+
+.directorist-single-contents-area .directorist-col-lg-8,
+.directorist-single-contents-area .directorist-col-lg-4 {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+@media (max-width: 768px) {
+	.directorist-single.directorist-container {
+		padding: 16px 16px 32px;
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Header: top bar (Go Back, Bookmark, Share, Report)
+   ------------------------------------------------------------------------- */
+
+.directorist-single-listing-header {
+	margin-bottom: 24px;
+}
+
+.directorist-single-listing-top {
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-bottom: 16px;
+}
+
+.directorist-single-listing-action,
+.directorist-btn__back {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 8px 14px;
+	border-radius: 8px;
+	font-size: 0.875rem;
+	font-weight: 500;
+	text-decoration: none;
+	transition: background 0.2s, color 0.2s;
+}
+
+.directorist-single-listing-action.directorist-btn-light,
+.directorist-btn__back.directorist-btn-light {
+	background: #f1f5f9;
+	color: #334155;
+	border: 1px solid #e2e8f0;
+}
+
+.directorist-single-listing-action.directorist-btn-light:hover,
+.directorist-btn__back.directorist-btn-light:hover {
+	background: #e2e8f0;
+	color: #1e293b;
+}
+
+.directorist-listing-single__quick-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+/* -------------------------------------------------------------------------
+   Listing title
+   ------------------------------------------------------------------------- */
+
+.directorist-listing-details__listing-title,
+.directorist-listing-details .directorist-listing-details__listing-title {
+	margin: 0 0 12px;
+	font-size: 1.75rem;
+	font-weight: 700;
+	line-height: 1.25;
+	color: #1e293b;
+}
+
+@media (min-width: 769px) {
+	.directorist-listing-details__listing-title {
+		font-size: 2rem;
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Quick info (category, rating)
+   ------------------------------------------------------------------------- */
+
+.directorist-listing-single-quickinfo {
+	margin-bottom: 20px;
+}
+
+.directorist-listing-single__info {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 16px 20px;
+}
+
+.directorist-info-item {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 0.875rem;
+	color: #64748b;
+}
+
+.directorist-info-item a {
+	color: #e50914;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.directorist-info-item a:hover {
+	text-decoration: underline;
+}
+
+.directorist-listing-category {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	background: #f1f5f9;
+	color: #475569;
+	padding: 6px 12px;
+	border-radius: 6px;
+	font-size: 0.8125rem;
+}
+
+.directorist-info-item-rating .directorist-review {
+	margin-left: 4px;
+}
+
+/* -------------------------------------------------------------------------
+   Image slider
+   ------------------------------------------------------------------------- */
+
+.directorist-single-listing-slider-wrap {
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+	margin-bottom: 28px;
+}
+
+.directorist-single-listing-slider .swiper-slide img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.directorist-swiper__nav {
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.95);
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+	color: #334155;
+	transition: background 0.2s, transform 0.2s;
+}
+
+.directorist-swiper__nav:hover {
+	background: #fff;
+	transform: scale(1.05);
+}
+
+/* -------------------------------------------------------------------------
+   Cards (Author, Location, Review, Contact, etc.)
+   ------------------------------------------------------------------------- */
+
+.directorist-single-wrapper .directorist-card {
+	background: #fff;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+	margin-bottom: 24px;
+	overflow: hidden;
+}
+
+.directorist-card__header {
+	padding: 18px 20px;
+	background: #f8fafc;
+	border-bottom: 1px solid #e2e8f0;
+}
+
+.directorist-card__header__title {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin: 0;
+	font-size: 1.0625rem;
+	font-weight: 700;
+	color: #1e293b;
+}
+
+.directorist-card__header-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	background: #e50914;
+	color: #fff;
+	border-radius: 8px;
+}
+
+.directorist-card__header-icon .directorist-icon-mask {
+	width: 16px;
+	height: 16px;
+}
+
+.directorist-card__body {
+	padding: 20px;
+}
+
+/* Author info card */
+.directorist-card-author-info .directorist-single-author-avatar {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin-bottom: 16px;
+}
+
+.directorist-single-author-avatar-inner {
+	margin: 0;
+}
+
+.directorist-single-author-avatar-inner img {
+	border-radius: 50%;
+	width: 48px;
+	height: 48px;
+	object-fit: cover;
+}
+
+.directorist-single-author-name h4 {
+	margin: 0 0 2px;
+	font-size: 1rem;
+	font-weight: 700;
+	color: #1e293b;
+}
+
+.directorist-single-author-membership {
+	font-size: 0.8125rem;
+	color: #64748b;
+}
+
+.directorist-single-author-contact-info ul {
+	list-style: none;
+	margin: 0 0 16px;
+	padding: 0;
+}
+
+.directorist-single-author-contact-info li {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 0.875rem;
+	color: #475569;
+	margin-bottom: 6px;
+}
+
+.directorist-single-author-contact-info a {
+	color: #e50914;
+	text-decoration: none;
+}
+
+.directorist-single-author-contact-info a:hover {
+	text-decoration: underline;
+}
+
+.diretorist-view-profile-btn,
+.directorist-widget .diretorist-view-profile-btn {
+	display: inline-block;
+	padding: 10px 18px;
+	background: #e50914;
+	color: #fff !important;
+	border-radius: 8px;
+	font-weight: 600;
+	font-size: 0.875rem;
+	text-decoration: none;
+	transition: background 0.2s;
+}
+
+.diretorist-view-profile-btn:hover {
+	background: #b80712;
+	color: #fff !important;
+}
+
+/* -------------------------------------------------------------------------
+   Location / Map section
+   ------------------------------------------------------------------------- */
+
+.directorist-single-map {
+	border-radius: 8px;
+	overflow: hidden;
+	min-height: 280px;
+	background: #f1f5f9;
+}
+
+.directorist-single-map__direction a {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: #e50914;
+	font-weight: 500;
+	text-decoration: none;
+	margin-top: 12px;
+}
+
+.directorist-single-map__direction a:hover {
+	text-decoration: underline;
+}
+
+/* -------------------------------------------------------------------------
+   Review section
+   ------------------------------------------------------------------------- */
+
+.directorist-review-content__header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.directorist-review-content__header .directorist-btn {
+	padding: 8px 16px;
+	background: #e50914;
+	color: #fff;
+	border-radius: 8px;
+	font-weight: 600;
+	font-size: 0.875rem;
+	text-decoration: none;
+	transition: background 0.2s;
+}
+
+.directorist-review-content__header .directorist-btn:hover {
+	background: #b80712;
+	color: #fff;
+}
+
+.directorist-review-single.directorist-noreviews {
+	color: #64748b;
+	font-size: 0.9375rem;
+	margin: 0;
+}
+
+.directorist-review-submit__form .directorist-form-element {
+	width: 100%;
+	padding: 12px 14px;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	font-size: 0.9375rem;
+	transition: border-color 0.2s;
+}
+
+.directorist-review-submit__form .directorist-form-element:focus {
+	border-color: #e50914;
+	outline: none;
+}
+
+.directorist-review-submit__form .directorist-btn-lg {
+	padding: 12px 24px;
+	background: #e50914;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+
+.directorist-review-submit__form .directorist-btn-lg:hover {
+	background: #b80712;
+	color: #fff;
+}
+
+/* -------------------------------------------------------------------------
+   Contact owner form
+   ------------------------------------------------------------------------- */
+
+.directorist-contact-owner-form-inner .directorist-form-element {
+	width: 100%;
+	padding: 12px 14px;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	font-size: 0.9375rem;
+	margin-bottom: 14px;
+	transition: border-color 0.2s;
+}
+
+.directorist-contact-owner-form-inner .directorist-form-element:focus {
+	border-color: #e50914;
+	outline: none;
+}
+
+.directorist-contact-owner-form-inner textarea.directorist-form-element {
+	min-height: 100px;
+	resize: vertical;
+}
+
+.directorist-contact-owner-form-inner .directorist-btn-submit {
+	padding: 12px 24px;
+	background: #e50914;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+
+.directorist-contact-owner-form-inner .directorist-btn-submit:hover {
+	background: #b80712;
+	color: #fff;
+}
+
+/* -------------------------------------------------------------------------
+   Related listings
+   ------------------------------------------------------------------------- */
+
+.directorist-related-listing-header {
+	margin-bottom: 20px;
+}
+
+.directorist-related-listing-header__title {
+	margin: 0;
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: #1e293b;
+}
+
+.directorist-related-listing .directorist-listing-card {
+	background: #fff;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+	transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.directorist-related-listing .directorist-listing-card:hover {
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+	transform: translateY(-2px);
+}
+
+.directorist-related-listing .directorist-listing-single__thumb {
+	border-radius: 12px 12px 0 0;
+	overflow: hidden;
+}
+
+.directorist-related-listing .directorist-listing-single__content {
+	padding: 16px;
+}
+
+.directorist-related-listing .directorist-listing-title a {
+	color: #1e293b;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 1rem;
+}
+
+.directorist-related-listing .directorist-listing-title a:hover {
+	color: #e50914;
+}
+
+.directorist-related-listing .directorist-swiper__nav {
+	width: 40px;
+	height: 40px;
+}
+
+/* -------------------------------------------------------------------------
+   Sidebar
+   ------------------------------------------------------------------------- */
+
+.directorist-sidebar .directorist-card {
+	background: #fff;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+	margin-bottom: 24px;
+	overflow: hidden;
+}
+
+.directorist-sidebar .directorist-card__body {
+	padding: 20px;
+}
+
+.directorist-sidebar .widgettitle,
+.directorist-sidebar .wp-block-heading {
+	margin: 0 0 16px;
+	font-size: 1rem;
+	font-weight: 700;
+	color: #1e293b;
+}
+
+.directorist-sidebar .directorist-single-author-info {
+	padding: 0;
+}
+
+.directorist-sidebar .directorist-single-author-avatar-inner img {
+	width: 40px;
+	height: 40px;
+}
+
+.directorist-sidebar .wp-block-search__inside-wrapper {
+	display: flex;
+	gap: 8px;
+}
+
+.directorist-sidebar .wp-block-search__input {
+	flex: 1;
+	padding: 10px 12px;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	font-size: 0.875rem;
+}
+
+.directorist-sidebar .wp-block-search__button {
+	padding: 10px 16px;
+	background: #e50914;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+/* -------------------------------------------------------------------------
+   Details info wrap (generic field groups)
+   ------------------------------------------------------------------------- */
+
+.directorist-details-info-wrap .directorist-single-info {
+	padding: 12px 0;
+	border-bottom: 1px solid #f1f5f9;
+}
+
+.directorist-details-info-wrap .directorist-single-info:last-child {
+	border-bottom: none;
+}
+
+.directorist-single-info__label {
+	font-size: 0.8125rem;
+	font-weight: 600;
+	color: #64748b;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	margin-bottom: 4px;
+}
+
+.directorist-single-info__value,
+.directorist-single-info__value a {
+	color: #1e293b;
+	font-size: 0.9375rem;
+}
+
+.directorist-single-info__value a:hover {
+	color: #e50914;
+}
+
+/* -------------------------------------------------------------------------
+   Modal (Report abuse)
+   ------------------------------------------------------------------------- */
+
+.directorist-modal__content {
+	border-radius: 12px;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.directorist-modal__header {
+	padding: 20px;
+	border-bottom: 1px solid #e2e8f0;
+}
+
+.directorist-modal-title {
+	font-size: 1.125rem;
+	font-weight: 700;
+	color: #1e293b;
+}
+
+.directorist-modal__body {
+	padding: 20px;
+}
+
+.directorist-modal__footer {
+	padding: 16px 20px;
+	border-top: 1px solid #e2e8f0;
+}
+
+.directorist-modal__footer .directorist-btn {
+	padding: 10px 20px;
+	background: #e50914;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	font-weight: 600;
+	cursor: pointer;
+}
