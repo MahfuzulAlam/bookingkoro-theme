@@ -42,6 +42,19 @@ function bookingkoro_main_menu_fallback() {
 	echo '</ul>';
 }
 
+function get_bookingkoro_template( $parent_template, $child_template, $args = array() ){
+	if( $args && count( $args ) > 0 ){
+		extract( $args );
+	}
+	if( ! empty( $parent_template ) && ! empty( $child_template ) ){
+		include get_stylesheet_directory() . '/template-parts' . '/' . $parent_template . '/' . $child_template . '.php';
+	} elseif( ! empty( $child_template ) ) {
+		include get_stylesheet_directory() . '/template-parts' . $child_template . '.php';
+	} else {
+		return;
+	}
+}
+
 /**
  * Add body class when BookingKoro Homepage template is used.
  *
@@ -130,58 +143,58 @@ function bookingkoro_enqueue_styles() {
 			file_exists( $single_path ) ? filemtime( $single_path ) : $version
 		);
 	}
+
+	// Directorist all listings / archive: search, filters, grid and pagination.
+	$archive_slugs = array( 'all-listings', 'search-result' );
+	$archive_slugs = apply_filters( 'bookingkoro_directorist_archive_page_slugs', $archive_slugs );
+	if ( is_page( $archive_slugs ) ) {
+		$archive_path = get_stylesheet_directory() . '/assets/css/directorist-archive.css';
+		wp_enqueue_style(
+			'bookingkoro-directorist-archive',
+			$uri . '/assets/css/directorist-archive.css',
+			array( 'directorist-main-style', 'bookingkoro-home' ),
+			file_exists( $archive_path ) ? filemtime( $archive_path ) : $version
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'bookingkoro_enqueue_styles', 15 );
 
 
-add_action( 'wp_footer', function(){
-	?>
-	<script type="text/javascript">
-		jQuery(document).ready(function($){
-			// Phone 1
-			$('.directorist-single-info.directorist-single-info-phone a').attr('target', '_blank');
-			// Phone 2
-			$('.directorist-single-info.directorist-single-info-phone2 a').attr('target', '_blank');
-		});
-	</script>
-	<?php
-} );
+// add_filter( 'atbdp_listing_search_query_argument', 'directorist_custom_order_by_event_date_desc' );
+// add_filter( 'directorist_all_listings_query_arguments', 'directorist_custom_order_by_event_date_desc' );
 
-add_filter( 'atbdp_listing_search_query_argument', 'directorist_custom_order_by_event_date_desc' );
-add_filter( 'directorist_all_listings_query_arguments', 'directorist_custom_order_by_event_date_desc' );
+// function directorist_custom_order_by_event_date_desc( $args ) {
+// 	$per_page = $args['posts_per_page'];
+// 	$args1 = $args2 = $args;
+// 	$args1['meta_query']['_custom-date'] = 
+// 		[
+// 			'key' => '_custom-date',
+// 			'compare' => 'EXISTS',
+// 		];
+// 	$args1['orderby'] = '_custom-date';
+// 	$args1['order'] = 'DESC';
+// 	$args1['fields'] = 'ids';
+// 	$args1['posts_per_page'] = -1;
 
-function directorist_custom_order_by_event_date_desc( $args ) {
-	$per_page = $args['posts_per_page'];
-	$args1 = $args2 = $args;
-	$args1['meta_query']['_custom-date'] = 
-		[
-			'key' => '_custom-date',
-			'compare' => 'EXISTS',
-		];
-	$args1['orderby'] = '_custom-date';
-	$args1['order'] = 'DESC';
-	$args1['fields'] = 'ids';
-	$args1['posts_per_page'] = -1;
-
-	$listings1 = new WP_Query($args1);
+// 	$listings1 = new WP_Query($args1);
 	
-	$args2['meta_query']['_custom-date'] = 
-		[
-			'key' => '_custom-date',
-			'compare' => 'NOT EXISTS',
-		];
-	$args2['fields'] = 'ids';
-	$args2['posts_per_page'] = -1;
+// 	$args2['meta_query']['_custom-date'] = 
+// 		[
+// 			'key' => '_custom-date',
+// 			'compare' => 'NOT EXISTS',
+// 		];
+// 	$args2['fields'] = 'ids';
+// 	$args2['posts_per_page'] = -1;
 
-	$listings2 = new WP_Query($args2);
+// 	$listings2 = new WP_Query($args2);
 
-	$listings = array_merge($listings1->posts, $listings2->posts);
+// 	$listings = array_merge($listings1->posts, $listings2->posts);
 
-	if( count($listings) > 0 ){
-		$args['post__in'] = $listings;
-		$args['orderby'] = 'post__in';
-		$args['posts_per_page'] = $per_page;
-	}
+// 	if( count($listings) > 0 ){
+// 		$args['post__in'] = $listings;
+// 		$args['orderby'] = 'post__in';
+// 		$args['posts_per_page'] = $per_page;
+// 	}
 
-	return $args;
-}
+// 	return $args;
+// }

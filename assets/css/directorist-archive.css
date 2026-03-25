@@ -1,0 +1,705 @@
+/**
+ * Directorist All Listings / Archive – BookingKoro overrides
+ * Improves search, filters, listing grid and pagination.
+ *
+ * @package BookingKoro
+ */
+
+/* -------------------------------------------------------------------------
+   Page & wrapper
+   ------------------------------------------------------------------------- */
+
+.directorist-archive-contents.directorist-contents-wrap {
+	max-width: 1280px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 24px 20px 40px;
+}
+
+.listing-with-sidebar .directorist-container-fluid {
+	padding: 0;
+}
+
+.listing-with-sidebar__wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+@media (max-width: 768px) {
+	.directorist-archive-contents.directorist-contents-wrap {
+		padding: 16px 16px 32px;
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Page title (All Listings) – inside .entry-header
+   ------------------------------------------------------------------------- */
+
+.content-area .entry-header .entry-title {
+	margin: 0 0 24px;
+	font-size: 1.75rem;
+	font-weight: 700;
+	color: #1e293b;
+}
+
+/* -------------------------------------------------------------------------
+   Type nav (Business / Store tabs)
+   ------------------------------------------------------------------------- */
+
+.listing-with-sidebar__type-nav {
+	margin-bottom: 20px;
+}
+
+.directorist-type-nav__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border-bottom: 2px solid #e2e8f0;
+}
+
+.directorist-type-nav__list li {
+	margin: 0;
+}
+
+.directorist-type-nav__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 20px;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: #64748b;
+	text-decoration: none;
+	border-bottom: 3px solid transparent;
+	margin-bottom: -2px;
+	transition: color 0.2s, border-color 0.2s;
+}
+
+.directorist-type-nav__link:hover {
+	color: #e50914;
+}
+
+.directorist-type-nav__list__current .directorist-type-nav__link {
+	color: #e50914;
+	border-bottom-color: #e50914;
+}
+
+.directorist-type-nav__link .directorist-icon-mask {
+	width: 18px;
+	height: 18px;
+	opacity: 0.8;
+}
+
+/* -------------------------------------------------------------------------
+   Top search form (What are you looking for?, Location, Category)
+   ------------------------------------------------------------------------- */
+
+.listing-with-sidebar__searchform {
+	margin-bottom: 24px;
+}
+
+.directorist-basic-search .directorist-search-form__box {
+	background: #fff;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+	padding: 16px 20px;
+}
+
+.directorist-search-form-top.directorist-search-form-inline {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px 16px;
+	align-items: flex-end;
+}
+
+.directorist-search-field {
+	margin-bottom: 0;
+}
+
+.directorist-search-field__label {
+	display: block;
+	margin-bottom: 6px;
+	font-size: 0.8125rem;
+	font-weight: 600;
+	color: #475569;
+}
+
+.directorist-basic-search .directorist-search-field__input,
+.directorist-basic-search .directorist-form-element {
+	min-width: 160px;
+	padding: 10px 14px;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	font-size: 0.9375rem;
+	transition: border-color 0.2s;
+}
+
+.directorist-basic-search .directorist-search-field__input:focus,
+.directorist-basic-search .directorist-form-element:focus {
+	border-color: #e50914;
+	outline: none;
+}
+
+/* Expand search field for "What are you looking for?" */
+.directorist-search-query .directorist-search-field__input {
+	min-width: 220px;
+}
+
+@media (max-width: 768px) {
+	.directorist-search-form-top.directorist-search-form-inline {
+		flex-direction: column;
+		align-items: stretch;
+	}
+	.directorist-search-field__input,
+	.directorist-search-query .directorist-search-field__input {
+		min-width: 0;
+		width: 100%;
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Header bar (Items Found, Filter, View as, Sort By)
+   ------------------------------------------------------------------------- */
+
+.listing-with-sidebar__header {
+	margin-bottom: 20px;
+}
+
+.directorist-header-bar {
+	background: #f8fafc;
+	border: 1px solid #e2e8f0;
+	border-radius: 10px;
+	padding: 14px 20px;
+}
+
+.directorist-listings-header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.directorist-header-found-title {
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: #1e293b;
+}
+
+.directorist-header-found-title span {
+	color: #e50914;
+}
+
+.directorist-listings-header__right {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px;
+}
+
+.directorist-archive-sidebar-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 14px;
+	background: #fff;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: #475569;
+	cursor: pointer;
+	transition: border-color 0.2s, color 0.2s;
+}
+
+.directorist-archive-sidebar-toggle:hover {
+	border-color: #e50914;
+	color: #e50914;
+}
+
+.directorist-viewas {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.directorist-viewas__item {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	background: #fff;
+	color: #64748b;
+	text-decoration: none;
+	transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.directorist-viewas__item:hover {
+	border-color: #e50914;
+	color: #e50914;
+}
+
+.directorist-viewas__item.active {
+	background: #e50914;
+	border-color: #e50914;
+	color: #fff;
+}
+
+.directorist-viewas__item .directorist-icon-mask {
+	width: 18px;
+	height: 18px;
+}
+
+.directorist-dropdown__toggle {
+	padding: 8px 14px;
+	background: #fff;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: #475569;
+	cursor: pointer;
+	transition: border-color 0.2s, color 0.2s;
+}
+
+.directorist-dropdown__toggle:hover {
+	border-color: #e50914;
+	color: #e50914;
+}
+
+.directorist-dropdown__links__single {
+	display: block;
+	padding: 8px 14px;
+	font-size: 0.875rem;
+	color: #475569;
+	text-decoration: none;
+	transition: background 0.2s, color 0.2s;
+}
+
+.directorist-dropdown__links__single:hover {
+	background: #f8fafc;
+	color: #e50914;
+}
+
+/* -------------------------------------------------------------------------
+   Layout: sidebar + listing area
+   ------------------------------------------------------------------------- */
+
+.listing-with-sidebar__contents {
+	display: flex;
+	gap: 24px;
+	align-items: flex-start;
+}
+
+.listing-with-sidebar__sidebar {
+	flex-shrink: 0;
+	width: 280px;
+}
+
+.listing-with-sidebar__listing {
+	flex: 1;
+	min-width: 0;
+}
+
+@media (max-width: 1024px) {
+	.listing-with-sidebar__sidebar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		max-width: 320px;
+		height: 100vh;
+		z-index: 1000;
+		transform: translateX(-100%);
+		transition: transform 0.3s;
+		overflow-y: auto;
+		background: #fff;
+		box-shadow: 4px 0 24px rgba(0, 0, 0, 0.1);
+	}
+	.listing-with-sidebar__sidebar.is-open {
+		transform: translateX(0);
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Sidebar – advanced filters
+   ------------------------------------------------------------------------- */
+
+.directorist-advanced-search .directorist-search-form__box {
+	background: #fff;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+	padding: 20px;
+}
+
+.directorist-advanced-filter__top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid #e2e8f0;
+}
+
+.directorist-advanced-filter__title {
+	margin: 0;
+	font-size: 1.125rem;
+	font-weight: 700;
+	color: #1e293b;
+}
+
+.directorist-advanced-filter__close {
+	width: 36px;
+	height: 36px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	background: #f8fafc;
+	color: #64748b;
+	cursor: pointer;
+	transition: border-color 0.2s, color 0.2s;
+}
+
+.directorist-advanced-filter__close:hover {
+	border-color: #e50914;
+	color: #e50914;
+}
+
+.directorist-advanced-filter__advanced {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.directorist-search-basic-dropdown-label {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 14px;
+	background: #f8fafc;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: #475569;
+	cursor: pointer;
+}
+
+.directorist-search-basic-dropdown-content {
+	padding: 14px 0 0;
+}
+
+.directorist-price-ranges__item input {
+	padding: 8px 12px;
+	border: 1px solid #e2e8f0;
+	border-radius: 6px;
+	font-size: 0.875rem;
+}
+
+.directorist-checkbox__label {
+	font-size: 0.875rem;
+	color: #475569;
+	cursor: pointer;
+}
+
+.directorist-advanced-filter__action {
+	margin-top: 20px;
+	padding-top: 16px;
+	border-top: 1px solid #e2e8f0;
+}
+
+.directorist-btn-reset-ajax {
+	padding: 10px 18px;
+	background: transparent;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: #64748b;
+	cursor: pointer;
+	transition: border-color 0.2s, color 0.2s;
+}
+
+.directorist-btn-reset-ajax:hover {
+	border-color: #e50914;
+	color: #e50914;
+}
+
+.directorist-btn-ml {
+	font-size: 0.875rem;
+	color: #e50914;
+	text-decoration: none;
+	margin-top: 8px;
+	display: inline-block;
+}
+
+.directorist-btn-ml:hover {
+	text-decoration: underline;
+}
+
+/* -------------------------------------------------------------------------
+   Listing grid cards
+   ------------------------------------------------------------------------- */
+
+.directorist-archive-items.directorist-archive-grid-view .directorist-container-fluid {
+	padding: 0;
+}
+
+.directorist-archive-items .directorist-row {
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+.directorist-archive-items .directorist-col-6 {
+	padding: 10px;
+}
+
+.directorist-archive-items .directorist-listing-card {
+	background: #fff;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+	transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.directorist-archive-items .directorist-listing-card:hover {
+	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+	transform: translateY(-4px);
+	border-color: #fecaca;
+}
+
+.directorist-archive-items .directorist-listing-single__thumb {
+	border-radius: 12px 12px 0 0;
+	overflow: hidden;
+}
+
+.directorist-archive-items .directorist-thumnail-card-front-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.3s;
+}
+
+.directorist-archive-items .directorist-listing-card:hover .directorist-thumnail-card-front-img {
+	transform: scale(1.05);
+}
+
+.directorist-archive-items .directorist-listing-single__content {
+	padding: 16px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.directorist-archive-items .directorist-listing-title {
+	margin: 0 0 8px;
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1.3;
+}
+
+.directorist-archive-items .directorist-listing-title a {
+	color: #1e293b;
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+.directorist-archive-items .directorist-listing-title a:hover {
+	color: #e50914;
+}
+
+.directorist-archive-items .directorist-info-item.directorist-rating-meta,
+.directorist-archive-items .directorist-rating-avg,
+.directorist-archive-items .directorist-total-review {
+	font-size: 0.8125rem;
+	color: #64748b;
+}
+
+.directorist-archive-items .directorist-listing-single__info__list {
+	list-style: none;
+	margin: 0 0 12px;
+	padding: 0;
+	font-size: 0.8125rem;
+	color: #64748b;
+}
+
+.directorist-archive-items .directorist-listing-single__info__list li {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin-bottom: 4px;
+}
+
+.directorist-archive-items .directorist-listing-single__meta {
+	margin-top: auto;
+	padding-top: 12px;
+	border-top: 1px solid #f1f5f9;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.directorist-archive-items .directorist-listing-category a {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 0.8125rem;
+	color: #e50914;
+	text-decoration: none;
+}
+
+.directorist-archive-items .directorist-listing-category a:hover {
+	text-decoration: underline;
+}
+
+.directorist-archive-items .directorist-view-count {
+	font-size: 0.8125rem;
+	color: #94a3b8;
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.directorist-archive-items .directorist-listing-price {
+	font-size: 0.9375rem;
+	font-weight: 700;
+	color: #1e293b;
+}
+
+.directorist-archive-items .directorist-thumb-listing-author img {
+	border-radius: 50%;
+	width: 32px;
+	height: 32px;
+	object-fit: cover;
+}
+
+.directorist-archive-items .directorist-mark-as-favorite__btn {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.95);
+	border: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: #64748b;
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s;
+}
+
+.directorist-archive-items .directorist-mark-as-favorite__btn:hover {
+	background: #fff;
+	color: #e50914;
+}
+
+/* -------------------------------------------------------------------------
+   Pagination – ensure it stays visible after the grid
+   ------------------------------------------------------------------------- */
+
+/* Scope to archive so we don’t affect other pagination (e.g. reviews). */
+.directorist-archive-contents .directorist-archive-items .directorist-pagination,
+.listing-with-sidebar__listing .directorist-pagination {
+	display: flex !important;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	width: 100%;
+	clear: both;
+	margin-top: 32px;
+	padding-top: 24px;
+	border-top: 1px solid #e2e8f0;
+	visibility: visible;
+	opacity: 1;
+}
+
+.directorist-archive-contents .directorist-archive-items .directorist-pagination .page-numbers,
+.listing-with-sidebar__listing .directorist-pagination .page-numbers {
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	min-width: 40px;
+	height: 40px;
+	padding: 0 12px;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	background: #fff;
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: #475569;
+	text-decoration: none;
+	transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.directorist-archive-contents .directorist-archive-items .directorist-pagination .page-numbers:hover,
+.listing-with-sidebar__listing .directorist-pagination .page-numbers:hover {
+	border-color: #e50914;
+	color: #e50914;
+}
+
+.directorist-archive-contents .directorist-archive-items .directorist-pagination .page-numbers.current,
+.listing-with-sidebar__listing .directorist-pagination .page-numbers.current {
+	background: #e50914;
+	border-color: #e50914;
+	color: #fff;
+	cursor: default;
+}
+
+.directorist-archive-contents .directorist-archive-items .directorist-pagination .page-numbers.dots,
+.listing-with-sidebar__listing .directorist-pagination .page-numbers.dots {
+	border: none;
+	background: transparent;
+	cursor: default;
+}
+
+.directorist-archive-contents .directorist-archive-items .directorist-pagination .page-numbers .directorist-icon-mask,
+.listing-with-sidebar__listing .directorist-pagination .page-numbers .directorist-icon-mask {
+	width: 16px;
+	height: 16px;
+}
+
+/* -------------------------------------------------------------------------
+   List view (when .directorist-archive-list-view is used)
+   ------------------------------------------------------------------------- */
+
+.directorist-archive-list-view .directorist-listing-card {
+	display: flex;
+	flex-direction: row;
+}
+
+.directorist-archive-list-view .directorist-listing-single__thumb {
+	flex: 0 0 280px;
+	min-height: 200px;
+}
+
+.directorist-archive-list-view .directorist-listing-single__content {
+	flex: 1;
+}
+
+@media (max-width: 768px) {
+	.directorist-archive-list-view .directorist-listing-card {
+		flex-direction: column;
+	}
+	.directorist-archive-list-view .directorist-listing-single__thumb {
+		flex: none;
+		min-height: 220px;
+	}
+}
