@@ -105,7 +105,7 @@ function bookingkoro_get_home_data() {
 }
 
 /**
- * Enqueue global header/footer styles on all pages. Homepage template gets additional JS.
+ * Enqueue global header/footer styles on all pages. Homepage template gets Splide + home JS.
  */
 function bookingkoro_enqueue_styles() {
 	$theme   = wp_get_theme();
@@ -113,25 +113,44 @@ function bookingkoro_enqueue_styles() {
 	$uri     = get_stylesheet_directory_uri();
 	$path    = get_stylesheet_directory() . '/assets/css/home.css';
 
-	// Header and footer CSS everywhere for consistent look and feel.
-	wp_enqueue_style(
-		'bookingkoro-home',
-		$uri . '/assets/css/home.css',
-		array( 'generate-style' ),
-		$version && file_exists( $path ) ? filemtime( $path ) : $version
-	);
+	$bookingkoro_home_deps = array( 'generate-style' );
 
-	// Homepage-only: carousel and section behaviour.
+	// Homepage: Splide carousel (hero) — CSS/JS only on BookingKoro home template.
 	if ( is_page_template( 'template-home-bookingkoro.php' ) ) {
+		$splide_version = '4.1.4';
+		wp_enqueue_style(
+			'splide',
+			'https://cdn.jsdelivr.net/npm/@splidejs/splide@' . $splide_version . '/dist/css/splide.min.css',
+			array(),
+			$splide_version
+		);
+		$bookingkoro_home_deps[] = 'splide';
+
+		wp_enqueue_script(
+			'splide',
+			'https://cdn.jsdelivr.net/npm/@splidejs/splide@' . $splide_version . '/dist/js/splide.min.js',
+			array(),
+			$splide_version,
+			true
+		);
+
 		$js_path = get_stylesheet_directory() . '/assets/js/home.js';
 		wp_enqueue_script(
 			'bookingkoro-home',
 			$uri . '/assets/js/home.js',
-			array(),
+			array( 'splide' ),
 			file_exists( $js_path ) ? filemtime( $js_path ) : $version,
 			true
 		);
 	}
+
+	// Header and footer CSS everywhere for consistent look and feel.
+	wp_enqueue_style(
+		'bookingkoro-home',
+		$uri . '/assets/css/home.css',
+		$bookingkoro_home_deps,
+		$version && file_exists( $path ) ? filemtime( $path ) : $version
+	);
 
 	// Directorist single listing: improved layout and card design.
 	if ( is_singular( 'at_biz_dir' ) ) {

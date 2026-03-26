@@ -229,29 +229,51 @@
    Hero carousel (gradient, cashback style)
    ------------------------------------------------------------------------- */
 
-.bkor-hero {
+.bkor-hero.splide {
 	position: relative;
 	background: linear-gradient(135deg, #c2410c 0%, #9a3412 50%, #7c2d12 100%);
 	min-height: 280px;
-	display: flex;
-	align-items: center;
 	overflow: hidden;
 }
 
-.bkor-hero__track {
-	width: 100%;
-	padding: 40px 24px;
+.bkor-hero .splide__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
-.bkor-hero__slide {
+.bkor-hero .splide__slide > .bkor-hero__slide {
+	box-sizing: border-box;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 24px;
-	max-width: 1200px;
-	margin: 0 auto;
+	min-height: 280px;
+	padding: 40px 24px;
 	text-decoration: none;
 	color: #fff;
+	position: relative;
+}
+
+.bkor-hero .splide__slide > .bkor-hero__slide--has-image {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.bkor-hero .splide__slide > .bkor-hero__slide--has-image::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	background: linear-gradient(105deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.35) 55%, rgba(0, 0, 0, 0.2) 100%);
+	pointer-events: none;
+}
+
+.bkor-hero .splide__slide > .bkor-hero__slide--has-image .bkor-hero__content {
+	position: relative;
+	z-index: 1;
+	margin-left: 50px;
 }
 
 .bkor-hero__title {
@@ -275,27 +297,58 @@
 	border-radius: 12px;
 }
 
-.bkor-hero__dots {
+/* Splide hero: arrows & pagination (see https://splidejs.com/guides/getting-started/) */
+.bkor-hero .splide__arrow {
 	position: absolute;
+	top: 50%;
+	z-index: 2;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.25);
+	border: none;
+	opacity: 1;
+	transform: translateY(-50%);
+	transition: background 0.2s;
+}
+
+.bkor-hero .splide__arrow:hover {
+	background: rgba(0, 0, 0, 0.4);
+}
+
+.bkor-hero .splide__arrow--prev {
+	left: 16px;
+}
+
+.bkor-hero .splide__arrow--next {
+	right: 16px;
+}
+
+.bkor-hero .splide__arrow svg {
+	fill: #fff;
+	width: 1em;
+	height: 1em;
+}
+
+.bkor-hero .splide__pagination {
 	bottom: 16px;
 	left: 50%;
 	transform: translateX(-50%);
-	display: flex;
 	gap: 8px;
-}
-
-.bkor-hero__dot {
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: rgba(255, 255, 255, 0.5);
-	border: none;
-	cursor: pointer;
 	padding: 0;
 }
 
-.bkor-hero__dot--active {
+.bkor-hero .splide__pagination__page {
+	width: 8px;
+	height: 8px;
+	margin: 0;
+	background: rgba(255, 255, 255, 0.5);
+	opacity: 1;
+}
+
+.bkor-hero .splide__pagination__page.is-active {
 	background: #fff;
+	transform: scale(1);
 }
 
 .bkor-carousel-arrow {

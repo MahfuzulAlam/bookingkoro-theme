@@ -14,7 +14,20 @@
 		{
 			"title": "Book Activities, Events, Services & More",
 			"subtitle": "Discover and reserve with ease",
-			"url": "#"
+			"url": "#",
+			"image": "assets/img/home/hero/events.png"
+		},
+		{
+			"title": "Rent Premium Cars - Sedans & SUVs",
+			"subtitle": "Book your perfect ride today",
+			"url": "#vehicle",
+			"image": "assets/img/home/hero/cars.png"
+		},
+		{
+			"title": "Find Doctors & Book Hospital Appointments",
+			"subtitle": "Quality healthcare at your fingertips",
+			"url": "#service",
+			"image": "assets/img/home/hero/doctors.png"
 		}
 	],
 	"stream_heading": "Discover",
