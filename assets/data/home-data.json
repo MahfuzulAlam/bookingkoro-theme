@@ -1,7 +1,7 @@
 {
-	"logo_text": "bookingkoro",
-	"tagline": "The Entertainment Ticket Portal",
-	"city_name": "Mumbai",
+	"logo_text": "BookingKoro",
+	"tagline": "Book Your Next Experience",
+	"city_name": "Dhaka",
 	"search_placeholder": "Search for Activities, Events, Services, Stays and Vehicles",
 	"secondary_nav": [
 		{ "label": "Activity", "url": "#activity" },
@@ -33,11 +33,12 @@
 	"stream_heading": "Discover",
 	"stream_tagline": "Book activities, events, services, stays and vehicles — all in one place.",
 	"main_categories": [
-		{ "label": "Activity", "url": "#activity", "icon": "activity" },
-		{ "label": "Event", "url": "#event", "icon": "event" },
-		{ "label": "Service", "url": "#service", "icon": "service" },
-		{ "label": "Stays", "url": "#stays", "icon": "stays" },
-		{ "label": "Vehicle", "url": "#vehicle", "icon": "vehicle" }
+		{ "label": "Offers", "url": "#offers", "icon": "offers", "image": "assets/img/home/categories/offers.png" },
+		{ "label": "Activity", "url": "#activity", "icon": "activity", "image": "assets/img/home/categories/activity.png" },
+		{ "label": "Event", "url": "#event", "icon": "event", "image": "assets/img/home/categories/event.png" },
+		{ "label": "Service", "url": "#service", "icon": "service", "image": "assets/img/home/categories/service.png" },
+		{ "label": "Stays", "url": "#stays", "icon": "stays", "image": "assets/img/home/categories/stays.png" },
+		{ "label": "Vehicle", "url": "#vehicle", "icon": "vehicle", "image": "assets/img/home/categories/vehicle.png" }
 	],
 	"recommended_movies": [
         { "title": "Sample Movie One", "genre": "Drama | English", "tags": ["U/A", "2D", "Hindi"], "offer": "20% OFF up to 150", "url": "#" },

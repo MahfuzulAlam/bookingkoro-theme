@@ -26,20 +26,14 @@ if ( empty( $hero_slides ) ) {
 				$url       = isset( $slide['url'] ) ? $slide['url'] : '#';
 				$title     = isset( $slide['title'] ) ? $slide['title'] : '';
 				$subtitle  = isset( $slide['subtitle'] ) ? $slide['subtitle'] : '';
-				$image_raw = isset( $slide['image'] ) ? $slide['image'] : '';
+				$image_url = bookingkoro_get_image_url( isset( $slide['image'] ) ? $slide['image'] : '' );
 
 				$slide_classes = array( 'bkor-hero__slide' );
-				$inline_style    = '';
+				$inline_style  = '';
 
-				if ( '' !== $image_raw ) {
+				if ( '' !== $image_url ) {
 					$slide_classes[] = 'bkor-hero__slide--has-image';
-					if ( preg_match( '#^https?://#i', $image_raw ) ) {
-						$img_url = $image_raw;
-					} else {
-						$img_url = get_stylesheet_directory_uri() . '/' . ltrim( $image_raw, '/' );
-					}
-					$img_url       = esc_url( $img_url );
-					$inline_style = 'background-image: url(' . $img_url . ');';
+					$inline_style    = 'background-image: url(' . esc_url( $image_url ) . ');';
 				}
 				?>
 				<li class="splide__slide">
@@ -50,7 +44,7 @@ if ( empty( $hero_slides ) ) {
 								<p class="bkor-hero__subtitle"><?php echo esc_html( $subtitle ); ?></p>
 							<?php endif; ?>
 						</div>
-						<?php if ( '' === $image_raw ) : ?>
+						<?php if ( '' === $image_url ) : ?>
 							<div class="bkor-hero__illus" aria-hidden="true"></div>
 						<?php endif; ?>
 					</a>

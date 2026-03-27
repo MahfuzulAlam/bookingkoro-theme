@@ -45,12 +45,54 @@
 			pagination: multi,
 			drag: multi,
 			keyboard: multi,
+			autoplay: true,
 		}).mount();
+	}
+
+	function initMobileNavDrawer() {
+		var toggle = document.querySelector('.bkor-nav-toggle');
+		var nav = document.getElementById('bkor-nav-sec');
+		var overlay = document.querySelector('.bkor-nav-overlay');
+		var closeBtn = nav ? nav.querySelector('.bkor-nav-sec__close') : null;
+
+		if (!toggle || !nav || !overlay || !closeBtn) return;
+
+		function setOpen(isOpen) {
+			nav.classList.toggle('is-open', isOpen);
+			overlay.classList.toggle('is-open', isOpen);
+			document.body.classList.toggle('bkor-nav-open', isOpen);
+			toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+		}
+
+		toggle.addEventListener('click', function () {
+			setOpen(!nav.classList.contains('is-open'));
+		});
+
+		closeBtn.addEventListener('click', function () {
+			setOpen(false);
+		});
+
+		overlay.addEventListener('click', function () {
+			setOpen(false);
+		});
+
+		nav.addEventListener('click', function (event) {
+			if (event.target.closest('.bkor-nav-sec__list a')) {
+				setOpen(false);
+			}
+		});
+
+		document.addEventListener('keydown', function (event) {
+			if ('Escape' === event.key && nav.classList.contains('is-open')) {
+				setOpen(false);
+			}
+		});
 	}
 
 	function init() {
 		initCarouselArrows();
 		initHeroSplide();
+		initMobileNavDrawer();
 	}
 
 	if (document.readyState === 'loading') {

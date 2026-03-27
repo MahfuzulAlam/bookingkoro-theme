@@ -105,6 +105,32 @@ function bookingkoro_get_home_data() {
 }
 
 /**
+ * Resolve an image path to a full URL.
+ *
+ * Accepts absolute URLs and theme-relative paths such as
+ * "assets/img/home/hero/slide.png".
+ *
+ * @param string $image_path Raw image value from data source.
+ * @return string Resolved image URL or empty string.
+ */
+function bookingkoro_get_image_url( $image_path ) {
+	if ( ! is_string( $image_path ) ) {
+		return '';
+	}
+
+	$image_path = trim( $image_path );
+	if ( '' === $image_path ) {
+		return '';
+	}
+
+	if ( preg_match( '#^https?://#i', $image_path ) ) {
+		return esc_url_raw( $image_path );
+	}
+
+	return esc_url_raw( get_stylesheet_directory_uri() . '/' . ltrim( $image_path, '/' ) );
+}
+
+/**
  * Enqueue global header/footer styles on all pages. Homepage template gets Splide + home JS.
  */
 function bookingkoro_enqueue_styles() {

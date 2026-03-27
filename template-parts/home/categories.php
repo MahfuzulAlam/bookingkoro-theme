@@ -20,12 +20,11 @@ $main_categories = isset( $home_data['main_categories'] ) && is_array( $home_dat
 		<div class="bkor-live-cats">
 			<?php
 			foreach ( $main_categories as $cat ) {
-				$url   = isset( $cat['url'] ) ? $cat['url'] : '#';
-				$label = isset( $cat['label'] ) ? $cat['label'] : '';
-				$icon  = isset( $cat['icon'] ) ? $cat['icon'] : '';
+				$url       = isset( $cat['url'] ) ? $cat['url'] : '#';
+				$label     = isset( $cat['label'] ) ? $cat['label'] : '';
+				$image_url = bookingkoro_get_image_url( isset( $cat['image'] ) ? $cat['image'] : '' );
 				?>
-				<a href="<?php echo esc_url( $url ); ?>" class="bkor-live-cat">
-					<span class="bkor-live-cat__icon bkor-live-cat__icon--<?php echo esc_attr( $icon ); ?>"></span>
+				<a href="<?php echo esc_url( $url ); ?>" class="bkor-live-cat"<?php echo '' !== $image_url ? ' style="background-image: url(' . esc_attr( $image_url ) . ');"' : ''; ?>>
 					<span class="bkor-live-cat__label"><?php echo esc_html( $label ); ?></span>
 				</a>
 			<?php }
