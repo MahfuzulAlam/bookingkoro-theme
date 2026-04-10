@@ -14,7 +14,7 @@ $home_data = bookingkoro_get_home_data();
 $recommended_vehicles = isset( $home_data['recommended_vehicles'] ) && is_array( $home_data['recommended_vehicles'] ) ? $home_data['recommended_vehicles'] : array();
 ?>
 
-<section class="bkor-section bkor-section--vehicles" aria-labelledby="bkor-recommended-vehicles-heading">
+<section id="vehicle" class="bkor-section bkor-section--vehicles" aria-labelledby="bkor-recommended-vehicles-heading">
 	<div class="bkor-container">
 		<header class="bkor-section-header bkor-section-header--light">
 			<div class="bkor-vehicles-heading-wrap">
@@ -34,6 +34,7 @@ $recommended_vehicles = isset( $home_data['recommended_vehicles'] ) && is_array(
 					<a href="<?php echo esc_url( $url ); ?>" class="bkor-vehicle-card__link">
 						<div class="bkor-vehicle-card__img">
 							<span class="bkor-vehicle-card__ribbon"><?php esc_html_e( 'Pick', 'bookingkoro' ); ?></span>
+							<span class="bkor-vehicle-card__icon" aria-hidden="true"><?php echo bookingkoro_get_icon_svg( 'vehicle' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 							<span class="bkor-vehicle-card__placeholder"><?php esc_html_e( 'Vehicle', 'bookingkoro' ); ?></span>
 						</div>
 						<div class="bkor-vehicle-card__body">

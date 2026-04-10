@@ -10,6 +10,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $home_data = bookingkoro_get_home_data();
+$search_results_url = home_url( '/search-results/' );
+$search_query_value = '';
+
+if ( isset( $_POST['q'] ) ) {
+	$search_query_value = sanitize_text_field( wp_unslash( $_POST['q'] ) );
+}
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -36,15 +42,15 @@ $home_data = bookingkoro_get_home_data();
 					<span class="bkor-menu-btn__line"></span>
 				</button>
 
-				<form class="bkor-search" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search" method="get">
+				<form class="bkor-search" action="<?php echo esc_url( $search_results_url ); ?>" role="search" method="post">
 					<label for="bkor-search-input" class="screen-reader-text"><?php esc_html_e( 'Search', 'bookingkoro' ); ?></label>
-					<span class="bkor-search__icon" aria-hidden="true">&#128269;</span>
-					<input id="bkor-search-input" type="search" class="bkor-search__input" name="s" placeholder="<?php echo esc_attr( isset( $home_data['search_placeholder'] ) ? $home_data['search_placeholder'] : '' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>">
+					<span class="bkor-search__icon" aria-hidden="true"><?php echo bookingkoro_get_icon_svg( 'search' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+					<input id="bkor-search-input" type="search" class="bkor-search__input" name="q" placeholder="<?php echo esc_attr( isset( $home_data['search_placeholder'] ) ? $home_data['search_placeholder'] : '' ); ?>" value="<?php echo esc_attr( $search_query_value ); ?>">
 				</form>
 			</div>
 
 			<?php if ( is_user_logged_in() ) : ?>
-				<a class="bkor-btn bkor-btn--account" href="<?php echo esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ); ?>"><?php esc_html_e( 'Account', 'bookingkoro' ); ?></a>
+				<a class="bkor-btn bkor-btn--account" href="<?php echo esc_url( bookingkoro_get_account_url() ); ?>"><?php esc_html_e( 'Account', 'bookingkoro' ); ?></a>
 			<?php else : ?>
 				<a class="bkor-btn bkor-btn--signin" href="<?php echo esc_url( wp_login_url( get_permalink() ) ); ?>"><?php esc_html_e( 'Sign In', 'bookingkoro' ); ?></a>
 			<?php endif; ?>

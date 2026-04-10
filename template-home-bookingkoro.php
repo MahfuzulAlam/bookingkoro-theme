@@ -58,7 +58,14 @@ $topic_sections = array(
 		$topic_section_items = isset( $home_data[ $topic_section_config['key'] ] ) && is_array( $home_data[ $topic_section_config['key'] ] )
 			? $home_data[ $topic_section_config['key'] ]
 			: array();
-			get_bookingkoro_template( 'home', 'topic-cards', array( 'topic_section_config' => $topic_section_config, 'topic_section_items' => $topic_section_items ) );
+		get_template_part(
+			'template-parts/home/topic-cards',
+			null,
+			array(
+				'topic_section_config' => $topic_section_config,
+				'topic_section_items'  => $topic_section_items,
+			)
+		);
 	}
 	?>
 

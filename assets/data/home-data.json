@@ -103,11 +103,56 @@
 		]
 	},
 	"footer": {
-		"list_show_text": "List your Show/Event?",
+		"list_show_text": "List your activity, stay or service on BookingKoro",
 		"contact_btn": "Contact Us",
-		"support": "24/7 CUSTOMER SUPPORT",
-		"resend": "RESEND BOOKING CONFIRMATION",
-		"newsletter": "SUBSCRIBE TO THE NEWSLETTER",
+		"support": "24/7 customer support for bookings and changes",
+		"resend": "Resend booking confirmations in seconds",
+		"newsletter": "Get curated offers, launches and booking updates",
+		"brand_description": "Book activities, events, stays, services and vehicles from one trusted platform built for fast, confident decisions.",
+		"link_groups": [
+			{
+				"title": "Explore",
+				"links": [
+					{ "label": "Activities", "url": "#activity" },
+					{ "label": "Events", "url": "#event" }
+				]
+			},
+			{
+				"title": "Stay & Travel",
+				"links": [
+					{ "label": "Stays", "url": "#stays" },
+					{ "label": "Vehicles", "url": "#vehicle" }
+				]
+			},
+			{
+				"title": "Services",
+				"links": [
+					{ "label": "Home Services", "url": "#service" },
+					{ "label": "Book a Provider", "url": "#service" }
+				]
+			},
+			{
+				"title": "Booking Help",
+				"links": [
+					{ "label": "Support Center", "url": "#" },
+					{ "label": "Manage Booking", "url": "#" }
+				]
+			},
+			{
+				"title": "Company",
+				"links": [
+					{ "label": "About BookingKoro", "url": "#" },
+					{ "label": "Contact Us", "url": "/#contact" }
+				]
+			}
+		],
+		"social_links": [
+			{ "label": "Facebook", "icon": "facebook", "url": "#" },
+			{ "label": "Instagram", "icon": "instagram", "url": "#" },
+			{ "label": "Twitter", "icon": "twitter", "url": "#" },
+			{ "label": "YouTube", "icon": "youtube", "url": "#" },
+			{ "label": "LinkedIn", "icon": "linkedin", "url": "#" }
+		],
 		"copyright": "Copyright © BookingKoro. All Rights Reserved."
 	}
 }

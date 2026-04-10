@@ -2,9 +2,9 @@
 /**
  * Template part for a single topic section (Activity, Event, Service, Stays, Vehicle) card list.
  *
- * Expects:
- * - $topic_section_config: array with 'label', 'slug', 'key'
- * - $topic_section_items: array of items with 'title', 'meta', 'url'
+ * Expects in $args:
+ * - topic_section_config: array with 'label', 'slug', 'key'
+ * - topic_section_items: array of items with 'title', 'meta', 'url'
  *
  * @package BookingKoro
  */
@@ -12,22 +12,32 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	return;
 }
-$home_data = bookingkoro_get_home_data();
-if ( empty( $topic_section_config ) || ! is_array( $topic_section_config ) ) {
+
+$topic_section_config = isset( $args['topic_section_config'] ) && is_array( $args['topic_section_config'] )
+	? $args['topic_section_config']
+	: array();
+$topic_section_items  = isset( $args['topic_section_items'] ) && is_array( $args['topic_section_items'] )
+	? $args['topic_section_items']
+	: array();
+
+if ( empty( $topic_section_config ) ) {
 	return;
 }
 
 $label = isset( $topic_section_config['label'] ) ? $topic_section_config['label'] : '';
 $slug  = isset( $topic_section_config['slug'] ) ? $topic_section_config['slug'] : '';
-$items = isset( $topic_section_items ) && is_array( $topic_section_items ) ? $topic_section_items : array();
+$items = $topic_section_items;
 $heading_id = 'bkor-' . $slug . '-heading';
 ?>
 
-<section class="bkor-section" aria-labelledby="<?php echo esc_attr( $heading_id ); ?>">
+<section id="<?php echo esc_attr( $slug ); ?>" class="bkor-section" aria-labelledby="<?php echo esc_attr( $heading_id ); ?>">
 	<div class="bkor-container">
 		<header class="bkor-section-header">
 			<h2 id="<?php echo esc_attr( $heading_id ); ?>" class="bkor-section-title"><?php echo esc_html( $label ); ?></h2>
-			<a class="bkor-section-link" href="#<?php echo esc_attr( $slug ); ?>"><?php esc_html_e( 'View All', 'bookingkoro' ); ?></a>
+			<a class="bkor-section-link" href="#<?php echo esc_attr( $slug ); ?>">
+				<?php esc_html_e( 'View All', 'bookingkoro' ); ?>
+				<span class="bkor-section-link__icon" aria-hidden="true"><?php echo bookingkoro_get_icon_svg( 'arrow-right' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+			</a>
 		</header>
 		<div class="bkor-cards bkor-cards--scroll">
 			<?php
@@ -39,6 +49,7 @@ $heading_id = 'bkor-' . $slug . '-heading';
 				<article class="bkor-card">
 					<a href="<?php echo esc_url( $url ); ?>" class="bkor-card__link">
 						<div class="bkor-card__img">
+							<span class="bkor-card__icon" aria-hidden="true"><?php echo bookingkoro_get_icon_svg( $slug ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 							<span class="bkor-card__placeholder"><?php echo esc_html( $label ); ?></span>
 						</div>
 						<div class="bkor-card__body">
