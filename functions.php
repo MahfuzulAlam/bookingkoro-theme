@@ -11,6 +11,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$bookingkoro_home_topic_cards_file = get_stylesheet_directory() . '/include/includes/inc/class-bookingkoro-home-topic-cards.php';
+
+if ( file_exists( $bookingkoro_home_topic_cards_file ) ) {
+	require_once $bookingkoro_home_topic_cards_file;
+}
+
 /**
  * Set up child theme.
  */
@@ -131,6 +137,21 @@ function bookingkoro_get_home_data() {
 
 	$data = apply_filters( 'bookingkoro_homepage_data', $decoded );
 	return $data;
+}
+
+/**
+ * Get homepage topic-card items for a Directorist directory type.
+ *
+ * @param string $directory_type_slug Directory-type slug.
+ * @param int    $limit               Listings per section.
+ * @return array<int, array<string, string>>
+ */
+function bookingkoro_get_topic_section_items( $directory_type_slug, $limit = 12 ) {
+	if ( ! class_exists( 'BookingKoro_Home_Topic_Cards' ) ) {
+		return array();
+	}
+
+	return BookingKoro_Home_Topic_Cards::get_items_for_directory_type( $directory_type_slug, $limit );
 }
 
 /**

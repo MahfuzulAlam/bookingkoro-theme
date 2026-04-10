@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $home_data = bookingkoro_get_home_data();
-$search_results_url = home_url( '/search-results/' );
+$search_results_url = home_url( '/search-result/' );
 $search_query_value = '';
 
 if ( isset( $_POST['q'] ) ) {
@@ -42,7 +42,7 @@ if ( isset( $_POST['q'] ) ) {
 					<span class="bkor-menu-btn__line"></span>
 				</button>
 
-				<form class="bkor-search" action="<?php echo esc_url( $search_results_url ); ?>" role="search" method="post">
+				<form class="bkor-search" action="<?php echo esc_url( $search_results_url ); ?>" role="search" method="get">
 					<label for="bkor-search-input" class="screen-reader-text"><?php esc_html_e( 'Search', 'bookingkoro' ); ?></label>
 					<span class="bkor-search__icon" aria-hidden="true"><?php echo bookingkoro_get_icon_svg( 'search' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 					<input id="bkor-search-input" type="search" class="bkor-search__input" name="q" placeholder="<?php echo esc_attr( isset( $home_data['search_placeholder'] ) ? $home_data['search_placeholder'] : '' ); ?>" value="<?php echo esc_attr( $search_query_value ); ?>">

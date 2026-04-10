@@ -4,7 +4,7 @@
  *
  * Expects in $args:
  * - topic_section_config: array with 'label', 'slug', 'key'
- * - topic_section_items: array of items with 'title', 'meta', 'url'
+ * - topic_section_items: array of items with 'title', 'meta', 'url', 'icon_html', 'image_url'
  *
  * @package BookingKoro
  */
@@ -28,6 +28,10 @@ $label = isset( $topic_section_config['label'] ) ? $topic_section_config['label'
 $slug  = isset( $topic_section_config['slug'] ) ? $topic_section_config['slug'] : '';
 $items = $topic_section_items;
 $heading_id = 'bkor-' . $slug . '-heading';
+
+if ( empty( $items ) ) {
+	return;
+}
 ?>
 
 <section id="<?php echo esc_attr( $slug ); ?>" class="bkor-section" aria-labelledby="<?php echo esc_attr( $heading_id ); ?>">
@@ -42,19 +46,32 @@ $heading_id = 'bkor-' . $slug . '-heading';
 		<div class="bkor-cards bkor-cards--scroll">
 			<?php
 			foreach ( $items as $item ) {
-				$title = isset( $item['title'] ) ? $item['title'] : '';
-				$meta  = isset( $item['meta'] ) ? $item['meta'] : '';
-				$url   = isset( $item['url'] ) ? $item['url'] : '#';
+				$title     = isset( $item['title'] ) ? $item['title'] : '';
+				$meta      = isset( $item['meta'] ) ? $item['meta'] : '';
+				$url       = isset( $item['url'] ) ? $item['url'] : '#';
+				$icon_html = isset( $item['icon_html'] ) && is_string( $item['icon_html'] ) ? $item['icon_html'] : '';
+				$image_url = isset( $item['image_url'] ) && is_string( $item['image_url'] ) ? $item['image_url'] : '';
 				?>
 				<article class="bkor-card">
 					<a href="<?php echo esc_url( $url ); ?>" class="bkor-card__link">
-						<div class="bkor-card__img">
-							<span class="bkor-card__icon" aria-hidden="true"><?php echo bookingkoro_get_icon_svg( $slug ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+						<div class="bkor-card__img<?php echo '' !== $image_url ? ' has-image' : ''; ?>">
+							<?php if ( '' !== $image_url ) : ?>
+								<img class="bkor-card__photo" src="<?php echo esc_url( $image_url ); ?>" alt="" loading="lazy" decoding="async">
+							<?php endif; ?>
+							<span class="bkor-card__icon" aria-hidden="true">
+								<?php if ( '' !== $icon_html ) : ?>
+									<?php echo $icon_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<?php else : ?>
+									<?php echo bookingkoro_get_icon_svg( $slug ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<?php endif; ?>
+							</span>
 							<span class="bkor-card__placeholder"><?php echo esc_html( $label ); ?></span>
 						</div>
 						<div class="bkor-card__body">
 							<h3 class="bkor-card__title"><?php echo esc_html( $title ); ?></h3>
-							<p class="bkor-card__meta"><?php echo esc_html( $meta ); ?></p>
+							<?php if ( '' !== $meta ) : ?>
+								<p class="bkor-card__meta"><?php echo esc_html( $meta ); ?></p>
+							<?php endif; ?>
 						</div>
 					</a>
 				</article>

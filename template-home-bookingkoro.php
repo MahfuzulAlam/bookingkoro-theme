@@ -14,31 +14,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
-$home_data = bookingkoro_get_home_data();
-
 $topic_sections = array(
 	'activity' => array(
-		'key'   => 'activity_items',
 		'label' => __( 'Activity', 'bookingkoro' ),
 		'slug'  => 'activity',
 	),
 	'event'    => array(
-		'key'   => 'event_items',
 		'label' => __( 'Event', 'bookingkoro' ),
 		'slug'  => 'event',
 	),
 	'service'  => array(
-		'key'   => 'service_items',
 		'label' => __( 'Service', 'bookingkoro' ),
 		'slug'  => 'service',
 	),
 	'stays'    => array(
-		'key'   => 'stays_items',
 		'label' => __( 'Stays', 'bookingkoro' ),
 		'slug'  => 'stays',
 	),
 	'vehicle'  => array(
-		'key'   => 'vehicle_items',
 		'label' => __( 'Vehicle', 'bookingkoro' ),
 		'slug'  => 'vehicle',
 	),
@@ -55,9 +48,8 @@ $topic_sections = array(
 
 	<?php
 	foreach ( $topic_sections as $topic_section_config ) {
-		$topic_section_items = isset( $home_data[ $topic_section_config['key'] ] ) && is_array( $home_data[ $topic_section_config['key'] ] )
-			? $home_data[ $topic_section_config['key'] ]
-			: array();
+		$topic_section_items = bookingkoro_get_topic_section_items( $topic_section_config['slug'] );
+
 		get_template_part(
 			'template-parts/home/topic-cards',
 			null,

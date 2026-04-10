@@ -546,10 +546,32 @@
 	justify-content: flex-end;
 	gap: 10px;
 	aspect-ratio: 4 / 5;
+	overflow: hidden;
+	isolation: isolate;
 	padding: 18px;
 	background:
 		linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(19, 32, 51, 0.55)),
 		linear-gradient(145deg, #e6edf7 0%, #c5d3e6 100%);
+}
+
+.bkor-card__img::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background:
+		linear-gradient(180deg, rgba(9, 17, 31, 0.1) 0%, rgba(9, 17, 31, 0.54) 88%),
+		linear-gradient(145deg, rgba(230, 237, 247, 0.15) 0%, rgba(197, 211, 230, 0.12) 100%);
+	z-index: 1;
+}
+
+.bkor-card__photo {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .bkor-card__icon {
@@ -563,6 +585,13 @@
 	backdrop-filter: blur(10px);
 	color: #fff;
 	font-size: 1.2rem;
+	position: relative;
+	z-index: 2;
+}
+
+.bkor-card__icon .directorist-icon-mask {
+	width: 20px;
+	height: 20px;
 }
 
 .bkor-card__placeholder {
@@ -570,6 +599,8 @@
 	font-size: 0.78rem;
 	font-weight: 700;
 	letter-spacing: 0.08em;
+	position: relative;
+	z-index: 2;
 	text-transform: uppercase;
 }
 
