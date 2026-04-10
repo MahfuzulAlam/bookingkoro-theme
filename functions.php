@@ -247,6 +247,41 @@ function bookingkoro_get_account_url() {
 }
 
 /**
+ * Get available Directorist directory types for the header search form.
+ *
+ * @return WP_Term[]
+ */
+function bookingkoro_get_directory_type_terms() {
+	$taxonomy = defined( 'ATBDP_DIRECTORY_TYPE' ) ? ATBDP_DIRECTORY_TYPE : 'atbdp_listing_types';
+
+	if ( ! taxonomy_exists( $taxonomy ) ) {
+		return array();
+	}
+
+	$terms = get_terms(
+		array(
+			'taxonomy'   => $taxonomy,
+			'hide_empty' => false,
+			'orderby'    => 'name',
+			'order'      => 'ASC',
+		)
+	);
+
+	if ( is_wp_error( $terms ) ) {
+		return array();
+	}
+
+	return array_values(
+		array_filter(
+			$terms,
+			static function( $term ) {
+				return $term instanceof WP_Term;
+			}
+		)
+	);
+}
+
+/**
  * Return the icon map used across the child theme.
  *
  * @return array<string, array<string, string>>
@@ -256,6 +291,14 @@ function bookingkoro_get_icon_map() {
 		'search'    => array(
 			'viewbox' => '0 0 24 24',
 			'path'    => 'M10 4a6 6 0 1 0 3.874 10.582 1 1 0 0 1 .252.166l4.656 4.656a1 1 0 0 1-1.414 1.414l-4.656-4.656a1 1 0 0 1-.166-.252A6 6 0 0 0 10 4Zm0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z',
+		),
+		'search-wide' => array(
+			'viewbox' => '0 0 24 24',
+			'path'    => 'M10.5 4a6.5 6.5 0 1 0 4.01 11.616l4.937 4.936a1 1 0 1 0 1.414-1.414l-4.936-4.937A6.5 6.5 0 0 0 10.5 4Zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm.5 1.25a.75.75 0 0 1 .75.75v1.75h1.75a.75.75 0 0 1 0 1.5h-1.75V13a.75.75 0 0 1-1.5 0v-1.75H8.5a.75.75 0 0 1 0-1.5h1.75V8a.75.75 0 0 1 .75-.75Z',
+		),
+		'chevron-down' => array(
+			'viewbox' => '0 0 24 24',
+			'path'    => 'M6.47 8.97a.75.75 0 0 1 1.06 0L12 13.44l4.47-4.47a.75.75 0 1 1 1.06 1.06l-5 5a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 0 1 0-1.06Z',
 		),
 		'arrow-right' => array(
 			'viewbox' => '0 0 24 24',

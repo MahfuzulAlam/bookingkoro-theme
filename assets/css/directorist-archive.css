@@ -47,6 +47,10 @@
    Type nav (Business / Store tabs)
    ------------------------------------------------------------------------- */
 
+.directorist-archive-contents__top .directorist-type-nav {
+	display: none;
+}
+
 .listing-with-sidebar__type-nav {
 	margin-bottom: 20px;
 }
@@ -529,6 +533,10 @@
 .directorist-archive-items .directorist-total-review {
 	font-size: 0.8125rem;
 	color: #64748b;
+}
+
+.directorist-content-active .directorist-listing-single__info {
+	padding: 0;
 }
 
 .directorist-archive-items .directorist-listing-single__info__list {
